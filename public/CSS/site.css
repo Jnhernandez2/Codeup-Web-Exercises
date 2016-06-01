@@ -1,0 +1,53 @@
+#sweetfont {
+	color: green;
+	text-decoration: underline;
+}
+
+dt {font-style: italic;}
+
+dd {font-family: Serif;}
+
+blockquote {
+	color: red;
+}
+
+ul>li {
+	color:pink;
+}
+
+ol>li {
+	color:purple;
+}
+
+ul {list-style: square;}
+
+ol {list-style: upper-alpha;}
+
+table, tr, td {
+	text-align: center;
+	border: 1px solid;
+}
+
+html {
+	background-color: #000;
+	background-image: url(https://d3n8a8pro7vhmx.cloudfront.net/americanlandscouncil/pages/88/attachments/original/1412546225/Utah.jpg?1412546225);
+	background-size: 1000px;
+	background-position: center;
+	background-repeat: no-repeat;}
+
+img {
+	height: 500px;
+	width: 800px;
+}
+
+.ohnice {
+	color: #fffaf0;
+}
+
+a:hover {
+	color: #f00;
+}
+
+h1, h2 {text-align: center;}
+
+#thatchangesthings {font-family: 'Poiret One', arial;} 

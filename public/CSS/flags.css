@@ -1,0 +1,271 @@
+h1 {
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bolder;
+	color: red;
+}
+
+
+#sweden {
+	width: 365px;
+	height: 260px;
+	background: yellow;
+	position: absolute;
+	margin-top: 50px;
+	margin-left: 350px;
+	/*float: fixed;*/
+}
+
+#inner-square {
+	width: 125px;
+	height: 110px;
+	background: blue;
+	float: left;
+	position: relative;
+}
+
+#inner-rectangle {
+	width: 200px;
+	height: 110px;
+	background: blue;
+	float: left;
+	position: relative;;
+}
+
+.top-left {
+	border-bottom: 20px solid yellow;
+	border-right: 20px solid yellow;
+}
+
+.top-right {
+	border-bottom: 20px solid yellow;
+	border-left: 20px solid yellow;
+}
+
+.bottom-left {
+	border-top: 20px solid yellow;
+	border-right: 20px solid yellow;
+}
+
+.bottom-right {
+	border-top: 20px solid yellow;
+	border-left: 20px solid yellow;
+}
+
+
+
+
+#pirate {
+	width: 500px;
+	height: 400px;
+	background: black;
+	position: relative;
+	margin-top: 500px;
+	margin-left: 350px;
+	margin-bottom: 500px;
+	/*float: fixed;*/
+}
+
+#head-shape {
+	display:block;
+   	width: 126px;
+   	height: 180px;
+   	position: absolute;
+   	left: 187px;
+   	top: 85px;
+   	background-color: #FFF;
+   	-webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+  	 border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
+}
+
+#cheek-cutout {
+	width: 150px;
+	height: 150px;
+	background: black;
+	position: absolute;
+}
+
+#cheek-cutout.left {
+	position: absolute;
+	top: 200px;
+	left: 75px;
+}
+
+#cheek-cutout.right {
+	position: absolute;
+	top: 200px;
+	right: 75px;
+}
+
+#teeth {
+	width: 10px;
+	height: 125px;
+	background: black;
+	position: absolute;
+}
+
+#teeth.left {
+	position: absolute;
+	top: 225px;
+	left: 235px;
+}
+
+#teeth.right {
+	position: absolute;
+	top: 225px;
+	right: 235px;
+}
+
+#cheek {
+	width: 55px;
+	height: 37px;
+	background: white;
+	position: absolute;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#cheek.left {
+	position: absolute;
+	top: 180px;
+	left: 180px;
+}
+
+#cheek.right {
+	position: absolute;
+	top: 180px;
+	right: 180px;
+}
+
+#eye {
+	width: 40px;
+	height: 40px;
+	background: black;
+	position: absolute;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#eye.left {
+	position: absolute;
+	top: 140px;
+	left: 200px;
+}
+
+#eye.right {
+	position: absolute;
+	top: 140px;
+	right: 200px;
+}
+
+#nose {
+	width: 5px;
+	height: 25px;
+	background: black;
+	position: absolute;
+}
+
+#nose.left {
+	position: absolute;
+	top: 180px;
+	left: 242px;
+}
+
+#nose.right {
+	position: absolute;
+	top: 180px;
+	right: 242px;
+}
+
+#eyebrow {
+	width: 70px;
+	height: 70px;
+	background: white;
+	position: absolute;
+	top: 93px;
+	left: 215px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#crossbone {
+	width: 150px;
+	height: 10px;
+	background: white;
+	position: absolute;
+}
+
+#crossbone.positive {
+	position: absolute;
+	top: 290px;
+	left: 175px;
+	transform: rotate(20deg);
+}
+
+#crossbone.negative {
+	position: absolute;
+	top: 290px;
+	right: 175px;
+	transform: rotate(-20deg);
+}
+
+#crossbone-sphere {
+	width: 20px;
+	height: 20px;
+	background: white;
+	position: absolute;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#crossbone-sphere.leftuu {
+	position: absolute;
+	top: 250px;
+	left: 175px;
+}
+
+#crossbone-sphere.leftul {
+	position: absolute;
+	top: 265px;
+	left: 165px;
+}
+
+#crossbone-sphere.leftlu {
+	position: absolute;
+	top: 305px;
+	left: 165px;
+}
+
+#crossbone-sphere.leftll {
+	position: absolute;
+	top: 320px;
+	left: 175px;
+}
+
+#crossbone-sphere.rightuu {
+	position: absolute;
+	top: 250px;
+	right: 175px;
+}
+
+#crossbone-sphere.rightul {
+	position: absolute;
+	top: 265px;
+	right: 165px;
+}
+
+#crossbone-sphere.rightlu {
+	position: absolute;
+	top: 305px;
+	right: 165px;
+}
+
+#crossbone-sphere.rightll {
+	position: absolute;
+	top: 320px;
+	right: 175px;
+}
