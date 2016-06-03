@@ -28,3 +28,5 @@ function isOdd(number) {
 
 // TODO: Call the function 'isOdd' passing the variable 'random' as a parameter.
 isOdd();
+
+alert("Don't eat the chips! They're poinsoned!");

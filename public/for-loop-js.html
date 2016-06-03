@@ -7,15 +7,19 @@
 <body>
 	<script>
 
-			
-		for (var i = 1; i < 10; i++) {
-		var times = ""
-			for (var you = 1; you <= i; you++) {
-				times = times + i
-			}	
-			console.log(times);
+		function coolNumbers(text, times) {	
+			for (var i = 1; i < 10; i++) {
+			var times = ""
+				for (var you = 1; you <= i; you++) {
+					times = times + i
+				}	
+				console.log(times);
 
+			}
+			
 		}
+
+		coolNumbers();
 
 		var randomNumber = Math.floor(Math.random() * 10) + 1;
 		for (var i = 1; i < 10; i++) {
