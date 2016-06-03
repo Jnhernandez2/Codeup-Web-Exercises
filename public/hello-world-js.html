@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+		var luckyNumber;
+		var i = 1
+
+		var zero = 0
+		var one = 0
+		var two = 0
+		var three = 0
+		var four = 0
+		var five = 0
+
+		while (i <= 100) {
+			luckyNumber = Math.floor(Math.random()*6);
+			i++;
+		
+			if (luckyNumber == 0) {
+				zero++;
+			} else if (luckyNumber == 1) {
+				one++;
+			} else if (luckyNumber == 2) {
+				two++;
+			} else if (luckyNumber == 3) {
+				three++;
+			} else if (luckyNumber == 4) {
+				four++;
+			} else {
+				five++;
+			}
+		}
+
+		console.log("0 appeared " + zero + " times.");
+		console.log("1 appeared " + one + " times.");
+		console.log("2 appeared " + two + " times.");
+		console.log("3 appeared " + three + " times.");
+		console.log("4 appeared " + four + " times.");
+		console.log("5 appeared " + five + " times.");
+
+
+
+	</script>
+</body>
+</html>
