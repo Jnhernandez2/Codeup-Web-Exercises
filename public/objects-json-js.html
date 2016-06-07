@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Objects JSON JS</title>
+</head>
+<body>
+	<script>
+		'use strict';
+
+		// todo:
+		// Create an array of objects that represent books.
+		var books = [
+		{
+			"title": "1984",
+			"author": {
+				"firstName": "George",
+				"lastName": "Orwell"
+			}
+		},
+		{
+			"title": "A Clockwork Orange",
+			"author": {
+				"firstName": "Anthony",
+				"lastName": "Burgess"
+			}
+		},
+		{
+			"title": "The Ugly American",
+			"author": {
+				"firstName": "Eugene",
+				"lastName": "Burdick"
+			},
+		},
+		{
+			"title": "Walden",
+			"author": {
+				"firstName": "Henry David",
+				"lastName": "Thoreau"
+			}
+		},
+		{
+			"title": "The Death of Ivan Ilyich",
+			"author": {
+				"firstName": "Leo",
+				"lastName": "Tolstoy"
+			}
+		}
+		]
+
+		// Each book should have a title and an author.
+		// The book author should be an object with a firstName and lastName.
+		// Be creative and add at least 5 books to the array
+		// var books = [todo];
+
+		// log out the books array
+		console.log(books);
+
+		// todo:
+		// Loop through the array of books using .forEach and print out the specified information about each one.
+		// start loop here
+		books.forEach(function (element, index) {
+		    console.log("Book #" + (index + 1));
+		    console.log("Title: " + element.title);
+		    console.log("Author: " + element.author.firstName + " " + element.author.lastName);
+		    console.log("---");
+		});
+		// end loop here
+
+
+	
+	</script>
+</body>
+</html>
