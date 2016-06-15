@@ -3,17 +3,17 @@
 <head>
 	<title>JQuery</title>
 </head>
-<body>
-	<h1>YO WASSUP!?</h1>
-	<p>I've come across intelligence that you obtain information inquiring "wassup."</p>
+<body id="body-style">
+	<h1 id="hover-change" class="font-color">YO WASSUP!?</h1>
+	<p class="font-color">I've come across intelligence that you obtain information inquiring "wassup."</p>
 	<ul>
 		<li>Please, relay "wassup" and broaden the breadth of my understanding.</li>
 		<li>Please do so in a manner that is both efficient and enlightening so that I may understand all the vast complexities of "wassup."</li>
 		<li>What IS up with "wassup?"</li>
 	</ul>
-	<div><h2>Wassup: Capacity for Pop Cultural Reference in Post Modernism</h2>
-		<img src="http://placekitten.com/g/200/300" alt="This kitten is wassup.">
-		<p>Popular culture in the internet age worships the kitten as did the ancient Egyptians. Contention exists as to the linkage of the age of "wassup" and the age of "the almighty and holy kitten" as does existence of various species of dinosaur linked to different periods.</p>
+	<div><h2 class="font-color">Wassup: Capacity for Pop Cultural Reference in Post Modernism</h2>
+		<img src="http://placekitten.com/g/400/300" title="This kitten is wassup." id="show-alt">
+		<p class="font-color">Popular culture in the internet age worships the kitten as did the ancient Egyptians. Contention exists as to the linkage of the age of "wassup" and the age of "the almighty and holy kitten" as does existence of various species of dinosaur linked to different periods.</p>
 	</div>
 
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -25,6 +25,16 @@
 
 		$(document).ready(function() {
 				alert("The DOM has finished loading! YAY!!!!");
+				$("h1").click(
+					function() {
+						var color = $(this).css("background-color");
+						console.log(color);
+						if (color === "rgba(0, 0, 0, 0)")
+							$(this).css("background-color", "#FF0");
+						else
+							$(this).css("background-color", "#FFF");
+					});
+			
 		});
 	</script>
 </body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+    <!-- <img src="http://placekitten.com/g/700/500" hidden> -->
+    <iframe src="//giphy.com/embed/KelJXICuprTfa" width="1000" height="1000" frameBorder="0" class="giphy-embed" allowFullScreen hidden></iframe><a href="http://giphy.com/gifs/psychedelic-drugs-weed-KelJXICuprTfa"></a>
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        "use strict";
+
+		var keyCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var entered = 0;
+
+
+        $(document).keyup(function(event) {
+            console.log(event.keyCode);
+           
+
+            
+
+        	if (keyCode[entered] === event.keyCode) {
+        		entered++;
+        		console.log(entered);
+        	} else {
+        		entered = 0;
+        		console.log("You Entered the Code Incorrectly");
+      		}
+
+      		if (entered === keyCode.length) {
+      			$("body").html("<iframe src='//giphy.com/embed/KelJXICuprTfa' width='1000' height='1000' frameBorder='0' class='giphy-embed' allowFullScreen hidden></iframe><a href='http://giphy.com/gifs/psychedelic-drugs-weed-KelJXICuprTfa'></a><iframe width='0' height='0' src='https://www.youtube.com/embed/A2IRKi1sXq0?autoplay=1' frameborder='0' allowfullscreen hidden></iframe>");
+           	 	$("iframe").removeAttr("hidden");
+      		}	
+        });
+    </script>
+</body>
+</html>
