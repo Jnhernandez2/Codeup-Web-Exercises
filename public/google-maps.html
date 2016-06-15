@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Maps API</title>
+	<style>
+		#map {
+			height: 700px;
+			width: 1000px;
+		}
+
+		div {
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUX-7tB181Zr0ar7rv1gI4_jAt5xXFIok"></script>
+
+	<script type="text/javascript">
+    (function() {
+        "use strict";
+
+        // Set our map options
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 11,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.418554,
+                lng: -98.491182
+            },
+
+			//mapTypeId: google.maps.MapTypeId.H
+
+        };
+
+		
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var indyCoffee = { lat: 29.576978, lng: -98.626060};
+        var indyImg = {
+        	url: "/img/indy-logo.jpeg",
+        	scaledSize: new google.maps.Size(50, 50)
+        };
+        var rosellaCoffee = { lat: 29.435994, lng: -98.480281};
+        var rosellaImg = {
+        	url: "/img/rosella-logo.jpeg",
+        	scaledSize: new google.maps.Size(50, 50)
+        };
+        var estateCoffee = { lat: 29.424916, lng: -98.476988};
+        var estateImg = {
+        	url: "/img/estate-logo.png",
+        	scaledSize: new google.maps.Size(100, 50)
+        };
+        
+
+        var indyMarker = new google.maps.Marker({
+        	position: indyCoffee,
+        	map: map,
+        	animation: google.maps.Animation.DROP,
+        	icon: indyImg
+        });
+
+        var rosellaMarker = new google.maps.Marker({
+        	position: rosellaCoffee,
+        	map: map,
+        	animation: google.maps.Animation.DROP,
+        	icon: rosellaImg
+        });
+
+        var estateMarker = new google.maps.Marker ({
+        	position: estateCoffee,
+        	map: map,
+        	animation: google.maps.Animation.DROP,
+        	icon: estateImg
+        });
+
+        
+        indyMarker.addListener("click", function () {
+        	var indyWindow = new google.maps.InfoWindow({
+        		content: "Bro-est Coffee in Town!"
+        		
+        	});
+        	indyWindow.open(map, indyMarker);
+			map.setZoom(14);
+        });
+
+        
+        rosellaMarker.addListener("click", function() {
+        	var rosellaWindow = new google.maps.InfoWindow({
+        		content: "Exposed Brick Makes for a Sweet Spot."
+        		
+        	});
+        	rosellaWindow.open(map, rosellaMarker);
+        	map.setZoom(14);
+        });
+
+        
+        estateMarker.addListener("click", function() {
+        	var estateWindow = new google.maps.InfoWindow({
+        		content: "Minimalism with Maximalist Appeal."
+        		
+       	 	});
+       	 	estateWindow.open(map, estateMarker);
+       	 	map.setZoom(14);
+        });
+
+  //       var geocoder = new google.maps.Geocoder();
+  //       var address = "7114 UTSA Boulevard #103 San Antonio TX 78249";
+
+
+  //       geocoder.geocode({ "address": address }, function(results, status) {
+
+		//    // Check for a successful result
+		//    if (status == google.maps.GeocoderStatus.OK) {
+
+		//        // Recenter the map over the address
+		//        map.setCenter(results[0].geometry.location);
+		//    } else {
+
+		//        // Show an error message with the status if our request fails
+		//        alert("Geocoding was not successful - STATUS: " + status);
+		//    }
+		// });
+
+
+
+    })();
+
+    </script>
+</body>
+</html>

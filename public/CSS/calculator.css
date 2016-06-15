@@ -1,0 +1,77 @@
+/*Calculator CSS*/
+body {
+	background-color: #383835;
+}
+
+
+div {
+	text-align: center;
+	background-color: #383835;
+	/*height: 100vh;*/
+	margin-top: 0;
+}
+
+
+input {
+	width: 230px;
+	border-radius: 5px;
+	box-shadow: 0 4px #5FADC7, 0px 10px 15px rgba(0,0,0,0.2);
+}
+
+input:hover {
+	background-color: grey;
+}
+
+.top {
+	margin-top: 70px;
+}
+
+input.bottom {
+	margin-bottom: 10px;
+}
+
+button.clear-button {
+	background-color: #35BD35;
+}
+
+button.clear-button:hover {
+	background-color: grey;
+}
+
+button {
+	/*width: 20px*/
+	border-radius: 5px;
+	font-size: 25px;
+	border: black 1px;
+	margin: top 5px;
+	margin-bottom: 5px;
+	padding: 20px;
+	background-color: #5FADC7;
+	color: #5A5E5A;
+	font-family: monospace;
+	box-shadow: 0 4px #ED152F, 0px 10px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+	background-color: grey;
+}
+
+
+button.equals-button {
+	width: 230px;
+}
+
+button.equals-button:hover {
+	background-color: grey;
+}
+
+button.math-function {
+	background-color: #D9CC21;
+}
+
+button.math-function:hover {
+	background-color: grey;
+};
+
+
+
