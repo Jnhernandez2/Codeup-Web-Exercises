@@ -2,11 +2,24 @@
 <html>
 <head>
 	<title>JQuery</title>
+	<style>
+	
+		.invisible {
+			display: none;
+		}
+
+		.floater {
+			float: right;
+			margin-right: 20px;
+		}
+
+	</style>
 </head>
 <body id="body-style">
+	<img src="/img/arrowhead.jpeg" class="floater">
 	<h1>National Park Service FAQ's!</h1>
 	<h2>via nps.gov</h2>
-
+	
 	<button type="button" id="invisible-control">Get Some Answers</button>
 	
 	<dl>
@@ -47,7 +60,7 @@
 
 		$("dt").css("font-weight", "bold");
 		$("dd").addClass("invisible");
-		$(".invisible").css("display", "none");
+		// $(".invisible").css("display", "none");
 		$("#invisible-control").click(function() {
 			$("dd").toggleClass("invisible");
 		});
