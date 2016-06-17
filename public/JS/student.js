@@ -73,16 +73,25 @@ addButton.addEventListener("click", getStudentSubject, false);
 
 
 
+// var finalAverage = average / student.subjects.length;
 
 var calculateStudentAverage = function () {
-// var finalAverage = average / student.subjects.length;
     var printAverage = student.calculateAverage();
-     document.getElementById("student-average").innerHTML = printAverage;
+    document.getElementById("student-average").innerHTML = printAverage;
 }
 
 var calculateButton = document.getElementById("calculate-average");
 calculateButton.addEventListener("click", calculateStudentAverage, false);
 
 
-
+var studentStatus = function() {
+    var printAverage = student.calculateAverage();
+    var awesome = getElementById("student-awesome");
+    var practice = getElementById("student-practice");
+    if (printAverage > 80) {
+        awesome.removeClass("hidden");
+    } else {
+        practice.removeClass("hidden");
+    }
+};
 

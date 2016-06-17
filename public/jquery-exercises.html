@@ -2,6 +2,11 @@
 <html>
 <head>
 	<title>JQuery</title>
+	<style>
+		/*.font-color {
+			color: #ED3F05;
+		}*/
+	</style>
 </head>
 <body id="body-style">
 	<h1 id="hover-change" class="font-color">YO WASSUP!?</h1>
@@ -25,14 +30,19 @@
 
 		$(document).ready(function() {
 				alert("The DOM has finished loading! YAY!!!!");
-				$("h1").click(
-					function() {
-						var color = $(this).css("background-color");
-						console.log(color);
-						if (color === "rgba(0, 0, 0, 0)")
-							$(this).css("background-color", "#FF0");
-						else
-							$(this).css("background-color", "#FFF");
+				$("li").addClass("font-color");
+				
+				$('.font-color').css('color', function() {
+					var letters = '0123456789ABCDEF'.split('');
+				    var color = '#';
+				    for (var i = 0; i < 6; i++ ) {
+				        color += letters[Math.floor(Math.random() * 16)];
+    				}	
+    				return color;
+				});
+				
+				$("h1, p, h2, li").click(function() {
+					$(this).toggleClass("font-color");
 					});
 			
 		});

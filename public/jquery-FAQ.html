@@ -3,7 +3,7 @@
 <head>
 	<title>JQuery</title>
 	<style>
-	
+
 		.invisible {
 			display: none;
 		}
@@ -55,6 +55,30 @@
 		<dd>For campground reservations, visit Recreation.gov. Not all parks participate in this service; many campgrounds are first come, first served.</dd>
 	</dl>
 
+	<h3>Yosemite National Park</h3>
+		<ul>
+			<li>Home of El Capitan</li>
+			<li>Home of John Muir/Pacific Crest Trail</li>
+			<li>Located in California</li>
+			<li>Established in 1864</li>
+		</ul>
+
+	<h3>Big Bend National Park</h3>
+		<ul>
+			<li>On Border of Texas and Mexico</li>
+			<li>Home of 450 species of bird - more than any other national park</li>
+			<li>801,163 acres</li>
+			<li>Established in 1944</li>
+		</ul>
+
+	<h3>Appilachian Trail</h3>
+		<ul>
+			<li>Not actually a national park</li>
+			<li>Extends over 14 states</li>
+			<li>2,160 miles</li>
+			<li>Officially established in 1968</li>
+		</ul>
+
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 
@@ -62,9 +86,16 @@
 		$("dd").addClass("invisible");
 		// $(".invisible").css("display", "none");
 		$("#invisible-control").click(function() {
-			$("dd").toggleClass("invisible");
+			$(".invisible").slideToggle();
 		});
 
+		$("ul").each(function(index, element) {
+			$(element).children().first().css("font-weight", "bold");	
+		});
+		
+		$("h3").click(function() {
+			$(this).next().slideToggle();
+		})
 	</script>
 
 </body>

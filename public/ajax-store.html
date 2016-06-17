@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>John's Online Tool Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+<h1>John's Online Tool Store</h1>
+
+<table id="products" class="table table-condense table-hover">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<button id="reload-json" class="btn btn-primary" type="button">Refresh Inventory</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an ajax GET request for /data/inventory.json
+    $.ajax("/data/inventory.json", {
+        type: "GET"
+    }).done(function(inventory) {
+        console.log(inventory);
+        inventory.forEach(function(tool) {
+            console.log(tool.title);
+            var categories = tool.categories
+            if (categories.length > 1) {
+                categories = categories.join(", ")
+            }
+            $("#insertProducts").append("<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>$" + tool.price + "</td><td>" + categories + "</tr>");
+            // if (too)
+            // tool.push({"category":"title"});
+            // quantity.push(inventory.quantity);
+            // price.push(inventory.price);
+            // category.push(inventory.categories);
+        // row.append("<td")
+        });
+        // console.log(tools);
+        // console.log(quantity);
+        // console.log(price);
+        // console.log(category);
+    });
+
+    $("#reload-json").click(function() {
+        $("#insertProducts").html("");
+        $.ajax("/data/inventory.json", {
+            type: "GET"
+        }).done(function(inventory) {
+            console.log(inventory);
+            inventory.forEach(function(tool) {
+                console.log(tool.title);
+                var categories = tool.categories
+                if (categories.length > 1) {
+                    categories = categories.join(", ")
+                }
+                $("#insertProducts").append("<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>$" + tool.price + "</td><td>" + categories + "</tr>");
+            });
+
+        });
+   });
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+})();
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+</html>
