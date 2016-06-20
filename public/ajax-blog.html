@@ -23,7 +23,7 @@
 				if (categories.length > 1) {
 	                categories = categories.join(", ")
 	            }
-	            $("#post").append("<p>" + entry.title + "</p><p>" + categories + "</p><p>" + entry.date + "</p><p>" + entry.content + "</p><br>")
+	            $("#post").append("<p class='lead'>" + entry.title + "</p><p><small>" + categories + "</small></p><p>" + entry.date + "</p><p>" + entry.content + "</p><br>")
 			});
 		});
 	</script>
