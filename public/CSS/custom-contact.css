@@ -1,6 +1,6 @@
 .blacken {
 	background-color: #333;
-	height: 100vh;
+	height: 100%;
 	-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 		  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
@@ -16,3 +16,8 @@ h2 {
 label {
 	color: #F8F8F8;
 }
+
+body {
+	padding-top: 0;
+	padding-bottom: 0;
+};

@@ -4,8 +4,10 @@
 	background-color: #EBDCCA;
 }
 
-html {
-	background-color: #32701D;
+body {
+	background-image: url("/img/brimstone.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 #container {
@@ -16,17 +18,30 @@ html {
 
 h1 {
 	text-align: center;
+	color: white;
 }
 
 h2 {
 	text-align: center;
+	color: white;
 }
 
 #map {
 	height: 450px;
 	margin-top: 50px;
-};
+}
 
 button {
 	margin-bottom: 20px;
+	background-color: #008CFF;
 }
+
+html {
+	background-color: black; 
+}
+
+#drag-info {
+	color: white;
+}
+
+

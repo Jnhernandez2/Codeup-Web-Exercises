@@ -5,14 +5,14 @@
     <style type="text/css">
     	#trip-ground {
     		background-image: url();
-    	}
+            
+    	};
 
     </style>
 </head>
 <body>
     <h1>Konami Code</h1>
-    <div id="trip-ground" hidden></div>
-    <!-- <img src="http://placekitten.com/g/700/500" hidden> -->
+    <img src="http://placekitten.com/g/1000/800" id="kitten" hidden>
     
     
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -39,7 +39,7 @@
 
       		if (entered === keyCode.length) {
       			$("body").html("<iframe src='//giphy.com/embed/KelJXICuprTfa' width='1000' height='1000' frameBorder='0' class='giphy-embed' allowFullScreen hidden></iframe><a href='http://giphy.com/gifs/psychedelic-drugs-weed-KelJXICuprTfa'></a><iframe width='0' height='0' src='https://www.youtube.com/embed/A2IRKi1sXq0?autoplay=1' frameborder='0' allowfullscreen hidden></iframe>");
-           	 	$("#trip").removeAttr("hidden");
+           	 	$("#kitten").removeAttr("hidden");
       		}	
         });
     </script>

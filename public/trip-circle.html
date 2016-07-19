@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trippy Circle</title>
+	<style>
+		#trip-circle {
+			width: 100px;
+			height: 100px;
+			background: red;
+			-moz-border-radius: 50px;
+			-webkit-border-radius: 50px;
+			border-radius: 50px;
+			margin: auto;
+			margin-top: 20%;
+			-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+		 			box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+		 	
+		}
+
+		.shadow{
+			-webkit-box-shadow: 0 25 100px rgba(0,0,0,.5);
+		  			box-shadow: 0 25 100px rgba(0,0,0,.5);
+		}
+	</style>
+</head>
+<body>
+	<div id="trip-circle" class="shadow"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<script>
+		(function() {
+			var random = Math.floor(Math.random()*1001);
+			var getRandom = function() {
+				
+				return random;
+			};
+
+			console.log(random);
+			var randomTime = random*10;
+			console.log(randomTime);
+			var i = 0;
+			id = setInterval(function() {
+				$("#trip-circle").animate({
+					"width": "-=" + getRandom(),
+					"height": "+=" + getRandom(),
+					"border-radius": "+=" + getRandom(),
+					"margin-left": "+=" + getRandom()
+				}, randomTime).animate({
+					"width": "+=" + getRandom(),
+					"height": "-=" + getRandom(),
+					"border-radius": "+=" + getRandom(),
+					"margin-left": "-=" + getRandom()
+				}, randomTime).animate({
+					"width": "-=" + getRandom(),
+					"height": "+=" + getRandom(),
+					"border-radius": "-=" + getRandom(),
+					"margin-top": "-=" + getRandom()
+				}, randomTime).animate({
+					"width": "+=" + getRandom(),
+					"height": "-=" + getRandom(),
+					"border-radius": "+=" + getRandom(),
+					"margin-top": "+=" + getRandom()
+				}, randomTime);	
+			}, 1500);
+		})();
+
+	</script>
+</body>
+</html>
