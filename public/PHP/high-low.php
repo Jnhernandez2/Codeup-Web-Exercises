@@ -111,6 +111,13 @@ extract(pageController());
               <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js">
               </script>
         <![endif]-->
+        <style>
+            body {
+                background-image: url('/IMG/white-brick.png');
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -133,7 +140,9 @@ extract(pageController());
                         type="number"
                         class="form-control"
                         name="guess"
-                        id="guess">
+                        id="guess"
+                        autofocus>
+
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Take a Guess!
