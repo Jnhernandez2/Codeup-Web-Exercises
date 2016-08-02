@@ -18,9 +18,9 @@ extract(pageController());
 <body>
 	<h1>My Favorite Things</h1>
 	<table>
-		
-		<tr><td><?php print_r($thing); ?></td></tr>
-		
+		<?php foreach ($myFavoriteThings as $thing): ?>
+		<tr><td><?= $thing; ?></td></tr>
+		<?php endforeach; ?>
 	</table>
 </body>
 </html>

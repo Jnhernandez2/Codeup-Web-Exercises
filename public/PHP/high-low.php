@@ -23,8 +23,8 @@ function pageController() {
                         $_SESSION['guessCount'] = $guessCount;
                     }
                     
-                    if (isset($_POST['guess'])) {
-                        $userGuess = ($_POST['guess']);
+                    if (isset($_REQUEST['guess'])) {
+                        $userGuess = ($_REQUEST['guess']);
                         if ($userGuess != $magicNumber) {    
                             
 
@@ -44,7 +44,7 @@ function pageController() {
                         $message = "Can you guess the magic number?";
                     }
 
-                   if (isset($_POST['newGame'])) {
+                   if (isset($_REQUEST['newGame'])) {
                         session_unset();
                         session_regenerate_id();
                         header('Location: high-low.php');

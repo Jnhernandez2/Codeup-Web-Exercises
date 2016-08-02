@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+require_once 'functions.php';
 
 function pageController() {
 
@@ -27,7 +27,7 @@ extract(pageController());
 </head>
 <body>
 	<h2>Username</h2>
-    <p><?php echo $username; ?></p>
+    <p><?php echo escape($username); ?></p>
     <a href='logout.php'>Log Out</a>
 </body>
 </html>

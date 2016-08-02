@@ -10,8 +10,8 @@
 //$count = 0;
 function pageController() {
 
-	if (isset($_GET['count'])) {
-		$count = $_GET['count'];
+	if (isset($_REQUEST['count'])) {
+		$count = $_REQUEST['count'];
 	} else {
 		$count = 0;
 	}

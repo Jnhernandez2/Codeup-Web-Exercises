@@ -1,11 +1,9 @@
 <?php 
+require_once '../../source/input.php';
 
 function pageController() {
-	if (isset($_GET['count'])) {
-		$count = $_GET['count'];
-	} else {
-		$count = 0;
-	}
+
+	$count = Input::get('count', 0);
 
 	return ['count' => $count];
 }

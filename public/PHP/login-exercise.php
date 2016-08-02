@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once 'functions.php';
 function pageController() {
 	
 	$data = [];
@@ -9,11 +10,11 @@ function pageController() {
 		header('Location: authentication.php');
 		exit();
 	}
-	
-	if (count($_POST) > 0) {
+
+	if (count($_REQUEST) > 0) {
 		
-		$data['username'] = (isset($_POST['username']))? $_POST['username']: null;
-		$data['password'] = (isset($_POST['password']))? $_POST['password']: null;
+		$data['username'] = inputGet('username', null);
+		$data['password'] = inputGet('password', null);
 
 	
 		
