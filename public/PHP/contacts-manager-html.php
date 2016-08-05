@@ -102,7 +102,7 @@ extract(pageController());
                 </div>
             </section>
             <article class="row contacts">
-                <section class="col-md-6">
+                <section class="col-md-8">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
