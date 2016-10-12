@@ -8,7 +8,7 @@ function pageController($dbc) {
 
 	$sql = "SELECT * FROM national_parks";
 
-	$page = max([Input::get('page', 0), 0]); 
+	$page = max([Input::getNumber('page', 1), 1]); 
     $offset = $page * 4 - 4;
     $sql .= " LIMIT 4 OFFSET $offset";
 
@@ -18,28 +18,69 @@ function pageController($dbc) {
 	$count = $dbc->query("SELECT COUNT(*) FROM national_parks")->fetchColumn();
 	$pages = ceil($count/4);
 
+    $errors = [];
+    $name = '';
+    $location = '';
+    $dateEstablished = '';
+    $areaInAcres = '';
+    $description = '';
+
 	if (!empty($_POST)) {
-		$name = Input::get('name');
-		$location = Input::get('location');
-		$dateEstablished = Input::get('date_established');
-		$areaInAcres = Input::get('area_in_acres');
-		$description = Input::get('description');
-	
-		$insert = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)";
-		$stmt = $dbc->prepare($insert);
-		$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-		$stmt->bindValue(':location', $location, PDO::PARAM_STR);
-		$stmt->bindValue(':date_established', $dateEstablished, PDO::PARAM_STR);
-		$stmt->bindValue(':area_in_acres', $areaInAcres, PDO::PARAM_STR);
-		$stmt->bindValue(':description', $description, PDO::PARAM_STR);
-		$stmt->execute();
+        
+        try {
+		  $name = Input::getString('name');
+        } catch (Exception $e) {
+            array_push($errors, $e->getMessage());
+        }
+
+        try {
+            $location = Input::getString('location');
+        } catch (Exception $e) {
+            array_push($errors, $e->getMessage());
+        }
+
+        try {
+            $dateEstablished = Input::getDate('date_established');
+        } catch (Exception $e) {
+            array_push($errors, $e->getMessage());
+        }
+
+        try {
+		    $areaInAcres = Input::getNumber('area_in_acres');
+        } catch (Exception $e) {
+            array_push($errors, $e->getMessage());
+        }
+
+        try {
+            $description = Input::getString('description', 50, 500);
+        } catch (Exception $e) {
+            array_push($errors, $e->getMessage());
+        }
+
+	    
+        if(empty($errors)) {
+    		$insert = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)";
+    		$stmt = $dbc->prepare($insert);
+    		$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    		$stmt->bindValue(':location', $location, PDO::PARAM_STR);
+    		$stmt->bindValue(':date_established', $dateEstablished->format('Y-m-d'), PDO::PARAM_STR);
+    		$stmt->bindValue(':area_in_acres', $areaInAcres, PDO::PARAM_STR);
+    		$stmt->bindValue(':description', $description, PDO::PARAM_STR);
+    		$stmt->execute();
+        }
 
 	}
 
 	return [
 
 		'parks' => $parks,
-		'pages' => $pages
+		'pages' => $pages,
+        'errors' => $errors,
+        'name' => $name,
+        'location' => $location,
+        'dateEstablished' => $dateEstablished,
+        'areaInAcres' => $areaInAcres,
+        'description' => $description
 
 		];
 }
@@ -60,7 +101,13 @@ extract(pageController($dbc));
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
         crossorigin="anonymous"
     >
-	<title></title>
+    <style>
+        body {
+            background-image: url('../IMG/subtle-patterns-7.jpeg');
+            background-size: 100%;
+        }
+    </style>
+	<title>National Parks Database</title>
 </head>
 <body>
 	<div class="container">
@@ -78,7 +125,7 @@ extract(pageController($dbc));
                         <tr>
                             <th>Name</th>
                             <th>Location</th>
-                            <th>Date Established</th>
+                            <th>Date Established (Y-M-D)</th>
                             <th>Area in Acres</th>
                             <th>Description</th>
                         </tr>
@@ -110,6 +157,11 @@ extract(pageController($dbc));
                 </table>
             </section>
         </article>
+        <?php if (!empty($errors)): ?>
+            <?php foreach ($errors as $error): ?>
+                <h4><?= $error ?><h4>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <form method="post" class="form-horizontal">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">
@@ -122,6 +174,9 @@ extract(pageController($dbc));
                         name="name"
                         id="name"
                         placeholder="Yosemite"
+                        <?php if (!empty($errors)): ?>
+                        value="<?= $name ?>"
+                        <?php endif; ?>
                     >
                 </div>
             </div>
@@ -136,6 +191,9 @@ extract(pageController($dbc));
                         name="location"
                         id="location"
                         placeholder="California"
+                        <?php if (!empty($errors)): ?>
+                        value="<?= $location ?>"
+                        <?php endif; ?>
                     >
                 </div>
             </div>
@@ -149,7 +207,10 @@ extract(pageController($dbc));
                         class="form-control"
                         name="date_established"
                         id="date_established"
-                        placeholder="1890-10-01"
+                        placeholder="1890-10-01 / YEAR-MONTH-DATE"
+                        <?php if (!empty($errors)): ?>
+                        value="<?= $dateEstablished->format('Y-m-d') ?>"
+                        <?php endif; ?>
                     >
                 </div>
             </div>
@@ -164,6 +225,9 @@ extract(pageController($dbc));
                         name="area_in_acres"
                         id="area_in_acres"
                         placeholder="761226.91"
+                        <?php if (!empty($errors)): ?>
+                        value="<?= $areaInAcres ?>"
+                        <?php endif; ?>
                     >
                 </div>
             </div>
@@ -178,6 +242,9 @@ extract(pageController($dbc));
                         name="description"
                         id="description"
                         placeholder="Yosemite features towering granite cliffs."
+                        <?php if (!empty($errors)): ?>
+                        value="<?= $description ?>"
+                        <?php endif; ?>
                     >
                 </div>
             </div>

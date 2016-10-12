@@ -20,14 +20,28 @@ var decimal = document.getElementById("point");
 var inputNumbers = function () {
 	var selection = this.getAttribute('value');
 
-	if (selection === "+" || selection === "-" || selection === "*" || selection === "/") {
-		middle.value = selection;
-	} else if (middle.value === "") {
-		first.value += selection;
-	} else if (selection === "=") {
-		doMath();
+	if (!answerInput.value) {
+		if (selection === "+" || selection === "-" || selection === "*" || selection === "/") {
+			middle.value = selection;
+		} else if (middle.value === "") {
+			first.value += selection;
+		} else if (selection === "=") {
+			doMath();
+		} else {
+			last.value += selection;
+		}
 	} else {
-		last.value += selection;
+		if (selection === "+" || selection === "-" || selection === "*" || selection === "/") {
+			first.value = answerInput.value
+			middle.value = selection;
+			last.value = "";
+			answerInput.value = "";
+		} else if (selection === "=") {
+			doMath();
+		} else {
+			last.value += selection;
+		}
+			
 	}
 };
 
@@ -47,13 +61,12 @@ var doMath = function() {
 		}
 
 		answerInput.value = answer;
-		if (answer = NaN) {
+		if (answer === NaN) {
 			answer = answer + "MASTE";
 		}
 		
 		console.log(answer);
 };
-
 
 
 for (var i = 0; i < buttons.length; i++) {
