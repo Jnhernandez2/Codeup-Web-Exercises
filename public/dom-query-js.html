@@ -52,11 +52,17 @@
         var itemColorChange = function (event) {
             var listItems = document.getElementsByTagName("li");
             for (var i = 0; i < listItems.length; i++) {
-                        if (i % 2 == 0) {
-                        listItems[i].style.color = "grey";
-                        };
-                    };
-            listItems[0].style.color = "blue";
+                if (i % 2 == 0) {
+                    listItems[i].style.color = "grey";
+                };
+
+                var dbid = listItems[i].getAttribute("data-dbid");
+                console.log(dbid);
+                if (dbid == 1) {
+                    listItems[i].style.color = "blue";
+                } 
+            };       
+            
         }
 
         var itemButton = document.getElementById("itemColorChange");

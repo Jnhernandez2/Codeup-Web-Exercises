@@ -15,6 +15,8 @@ var buttons = document.getElementsByClassName("calculator-button");
 
 var clear = document.getElementById("clear");
 
+var negative = document.getElementById("negative");
+
 var decimal = document.getElementById("point");
 
 var inputNumbers = function () {
@@ -57,7 +59,12 @@ var doMath = function() {
 		} else if (middle.value === "*") {
 			answer = firstInput * lastInput;
 		} else if (middle.value === "/") {
-			answer = firstInput / lastInput;
+			if (lastInput == "0") {
+				answer = "Error";
+			} else {
+				answer = firstInput / lastInput;
+			}
+			
 		}
 
 		answerInput.value = answer;
@@ -88,19 +95,52 @@ var decimalInput = function() {
 	var selection = this.getAttribute('value');
 	var activeScreen;
 
+		if (middle.value === "") {
+			activeScreen = first;
+		} else {
+			activeScreen = last;
+		}
 
-	if (middle.value === "") {
-		activeScreen = first;
-	} else {
-		activeScreen = last;
-	}
-
-	if (activeScreen.value == "") {
-		activeScreen.value = "0" + selection;
-	} else {
-		activeScreen.value += selection;
-	}
+		if (activeScreen.value == "") {
+			activeScreen.value = "0" + selection;
+		} else {
+			activeScreen.value += selection;
+		}
+	
 };
 
 
 decimal.addEventListener("click", decimalInput, false);
+
+
+var negativeInput = function() {
+	var selection = this.getAttribute('value');
+	var activeScreen;
+
+	if (middle.value == "") {
+		activeScreen = first;
+		if (activeScreen.value == "") {
+			activeScreen.value = "-";
+		} else if (activeScreen.value == "-") {
+			activeScreen.value = "";
+		} else {
+			activeScreen.value = (activeScreen.value * -1);
+		}
+		
+	} else {
+		activeScreen = last;
+		if (activeScreen.value == "") {
+			activeScreen.value = "-";
+		} else if (activeScreen.value == "-") {
+			activeScreen.value = "";
+		} else {
+			activeScreen.value = (activeScreen.value * -1);
+		}
+	}
+
+	
+}
+
+negative.addEventListener("click", negativeInput, false);
+
+
