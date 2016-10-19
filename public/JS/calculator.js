@@ -68,7 +68,7 @@ var doMath = function() {
 		}
 
 		answerInput.value = answer;
-		if (answer === NaN) {
+		if (answer == "NaN") {
 			answer = answer + "MASTE";
 		}
 		
@@ -95,18 +95,20 @@ var decimalInput = function() {
 	var selection = this.getAttribute('value');
 	var activeScreen;
 
-		if (middle.value === "") {
-			activeScreen = first;
-		} else {
-			activeScreen = last;
-		}
+	if (middle.value === "") {
+		activeScreen = first;
+	} else {
+		activeScreen = last;
+	}
 
+	if (!activeScreen.value.includes(".")) {
 		if (activeScreen.value == "") {
 			activeScreen.value = "0" + selection;
 		} else {
 			activeScreen.value += selection;
 		}
-	
+	}
+		
 };
 
 
