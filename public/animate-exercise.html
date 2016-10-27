@@ -24,6 +24,7 @@
 <body>
     <p>
         <button id="btn-move">Move It</button>
+        <button id="btn-move-back">Move It Back</button>
         <button id="btn-scale-up">Scale It Up</button>
         <button id="btn-scale-down">Scale It Down</button>
         <button id="btn-hide">Hide It</button>
@@ -41,6 +42,11 @@
         $("#btn-move").click(function(){
             $("#animate-box").animate({
                 left: "+=100"
+            }, 2000);
+        });
+        $('#btn-move-back').click(function() {
+            $('#animate-box').animate({
+                left: "-=100"
             }, 2000);
         });
         // TODO: "Scale It" should expand the box width by 50%

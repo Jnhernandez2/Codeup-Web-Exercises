@@ -1,11 +1,11 @@
 [
     {
         "title": "Hammer",
-        "quantity": 50,
+        "quantity": 40,
         "categories": [
             "Tool"
         ],
-        "price": 20
+        "price": 15
     }, {
         "title": "Drill",
         "quantity": 5,
@@ -27,8 +27,11 @@
         "title": "Screwdrivers",
         "quantity": 25,
         "categories": [
-            "Tool"
+            "Tool",
+            "Weapon",
+            "Dangerous",
+            "Childrens' Toy"
         ],
-        "price": 10
+        "price": 5
     }
 ]

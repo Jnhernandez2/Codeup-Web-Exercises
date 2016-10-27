@@ -19,8 +19,16 @@ var negative = document.getElementById("negative");
 
 var decimal = document.getElementById("point");
 
+var deleteButton = document.getElementById("delete");
+
+var selection;
+
+var numberSaved;
+
+var heldNumber;
+
 var inputNumbers = function () {
-	var selection = this.getAttribute('value');
+	selection = this.getAttribute('value');
 
 	if (!answerInput.value) {
 		if (selection === "+" || selection === "-" || selection === "*" || selection === "/") {
@@ -29,8 +37,10 @@ var inputNumbers = function () {
 			first.value += selection;
 		} else if (selection === "=") {
 			doMath();
-		} else {
+		} else {	
 			last.value += selection;
+			heldNumber = holdNumber();
+			console.log(heldNumber);
 		}
 	} else {
 		if (selection === "+" || selection === "-" || selection === "*" || selection === "/") {
@@ -42,37 +52,96 @@ var inputNumbers = function () {
 			doMath();
 		} else {
 			last.value += selection;
+			heldNumber = holdNumber();
+			console.log(heldNumber);
 		}
 			
 	}
+
+	if (heldNumber) {
+	  	if (selection === "+" || selection === "-" || selection === "*" || selection === "/") {
+			complexInput();
+		}
+	}	
+
 };
 
+var complexInput = function() {
+
+	if (selection === "+") {
+		first.value = heldNumber;
+		middle.value = selection;
+		last.value = "";
+	} else if (selection === "-") {
+		first.value = heldNumber;
+		middle.value = selection;
+		last.value = "";
+	} else if (selection === "*") {
+		first.value = heldNumber;
+		middle.value = selection;
+		last.value = "";
+	} else if (selection === "/") {
+		first.value = heldNumber;
+		middle.value = selection;
+		last.value = "";
+	}
+	
+
+};
+
+
 var doMath = function() {
-		var firstInput = parseFloat(first.value);
-		var lastInput = parseFloat(last.value);
-		var answer = "";
+	var firstInput = parseFloat(first.value);
+	var lastInput = parseFloat(last.value);
+	var answer = "";
 
-		if (middle.value === "+") {
-			answer = firstInput + lastInput;
-		} else if (middle.value === "-") {
-			answer = firstInput - lastInput;
-		} else if (middle.value === "*") {
-			answer = firstInput * lastInput;
-		} else if (middle.value === "/") {
-			if (lastInput == "0") {
-				answer = "Error";
-			} else {
-				answer = firstInput / lastInput;
-			}
-			
-		}
-
-		answerInput.value = answer;
-		if (answer == "NaN") {
-			answer = answer + "MASTE";
+	if (middle.value === "+") {
+		answer = firstInput + lastInput;
+	} else if (middle.value === "-") {
+		answer = firstInput - lastInput;
+	} else if (middle.value === "*") {
+		answer = firstInput * lastInput;
+	} else if (middle.value === "/") {
+		if (lastInput == "0") {
+			answer = "Error";
+		} else {
+			answer = firstInput / lastInput;
 		}
 		
-		console.log(answer);
+	}
+
+	answerInput.value = answer;
+	if (answer == "NaN") {
+		answer = answer + "-MASTE";
+		answerInput.value = answer;
+	}
+
+	heldNumber = "";
+
+};
+
+var holdNumber = function() {
+	var firstInput = parseFloat(first.value);
+	var lastInput = parseFloat(last.value);
+	var answer = "";
+
+	if (middle.value === "+") {
+		answer = firstInput + lastInput;
+	} else if (middle.value === "-") {
+		answer = firstInput - lastInput;
+	} else if (middle.value === "*") {
+		answer = firstInput * lastInput;
+	} else if (middle.value === "/") {
+		if (lastInput == "0") {
+			answer = "Error";
+		} else {
+			answer = firstInput / lastInput;
+		}
+		
+	}
+
+	return answer;
+
 };
 
 
@@ -86,13 +155,14 @@ var clearInputs = function() {
 	middle.value = "";
 	last.value = "";
 	answerInput.value = "";
+	heldNumber = "";
 };
 
 clear.addEventListener("click", clearInputs, false);
 
 
 var decimalInput = function() {
-	var selection = this.getAttribute('value');
+	selection = this.getAttribute('value');
 	var activeScreen;
 
 	if (middle.value === "") {
@@ -104,6 +174,8 @@ var decimalInput = function() {
 	if (!activeScreen.value.includes(".")) {
 		if (activeScreen.value == "") {
 			activeScreen.value = "0" + selection;
+		} else if (activeScreen.value == "-") {
+			activeScreen.value += "0" + selection;
 		} else {
 			activeScreen.value += selection;
 		}
@@ -116,7 +188,7 @@ decimal.addEventListener("click", decimalInput, false);
 
 
 var negativeInput = function() {
-	var selection = this.getAttribute('value');
+	selection = this.getAttribute('value');
 	var activeScreen;
 
 	if (middle.value == "") {
@@ -144,5 +216,26 @@ var negativeInput = function() {
 }
 
 negative.addEventListener("click", negativeInput, false);
+
+
+var deleteFunction = function() {
+	selection = this.getAttribute('value');
+	var activeScreen;
+
+	if (!answerInput.value) {
+		if (middle.value === "") {
+			activeScreen = first;
+		} else {
+			activeScreen = last;
+		}
+	} else {
+		activeScreen = answerInput;
+	}
+
+	activeScreen.value = activeScreen.value.slice(0, -1);
+
+}
+
+deleteButton.addEventListener("click", deleteFunction, false);
 
 

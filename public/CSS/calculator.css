@@ -33,6 +33,10 @@ button.clear-button:hover {
 	background-color: grey;
 }
 
+button.delete-button {
+	background-color: orange;
+}
+
 
 button {
 	/*width: 20px*/
@@ -54,7 +58,7 @@ button:hover {
 
 
 button.equals-button {
-	width: 172.5px;
+	width: 115px;
 }
 
 button.equals-button:hover {
